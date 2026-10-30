@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Crowncraft Events</title>
+<meta name="description" content="Browse photos from weddings, corporate events, social events, cultural fests and sports events managed by Crowncraft Events, Varanasi.">
+<link rel="canonical" href="https://crowncraft-events.vercel.app/gallery.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">Crown<span>craft</span> Events</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn btn-small nav-cta">Enquire Now</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<section class="page-header" style="background-image:url('images/gallery-hero.jpg');">
+  <div class="container">
+    <p class="eyebrow">Our Work</p>
+    <h1>Moments We've Crafted</h1>
+    <p>A look at weddings, corporate events, socials, fests and sports events we've managed.</p>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="container">
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="wedding">Weddings</button>
+      <button class="filter-btn" data-filter="corporate">Corporate</button>
+      <button class="filter-btn" data-filter="sports">Sports</button>
+      <button class="filter-btn" data-filter="social">Social</button>
+      <button class="filter-btn" data-filter="cultural">Cultural</button>
+    </div>
+    <div class="gallery-grid">
+      <figure data-category="sports"><img src="images/sports3.jpg" alt="Packed stadium sports event" loading="lazy"></figure>
+      <figure data-category="sports"><img src="images/sports4.jpg" alt="Sports event crowd" loading="lazy" style="object-position:center 80%;"></figure>
+      <figure data-category="sports"><img src="images/sports1.jpg" alt="Sports tournament trophies and medals" loading="lazy"></figure>
+      <figure data-category="sports"><img src="images/sports2.jpg" alt="Cricket tournament match" loading="lazy"></figure>
+      <figure data-category="wedding"><img src="images/hero.jpg" alt="Wedding couple portrait" loading="lazy"></figure>
+      <figure data-category="wedding"><img src="images/wedding1.jpg" alt="Wedding mandap decor" loading="lazy"></figure>
+      <figure data-category="wedding"><img src="images/wedding2.jpg" alt="Wedding rituals" loading="lazy"></figure>
+      <figure data-category="wedding"><img src="images/wedding3.jpg" alt="Wedding stage decoration" loading="lazy"></figure>
+      <figure data-category="wedding"><img src="images/wedding4.jpg" alt="Wedding venue styling" loading="lazy"></figure>
+      <figure data-category="social"><img src="images/birthday1.jpg" alt="Festive family celebration" loading="lazy"></figure>
+      <figure data-category="social"><img src="images/birthday2.jpg" alt="Birthday celebration" loading="lazy"></figure>
+      <figure data-category="social"><img src="images/birthday3.jpg" alt="Kids birthday party" loading="lazy"></figure>
+      <figure data-category="social"><img src="images/birthday4.jpg" alt="Birthday decor closeup" loading="lazy"></figure>
+      <figure data-category="corporate"><img src="images/corporate1.jpg" alt="Corporate team at work" loading="lazy"></figure>
+      <figure data-category="corporate"><img src="images/corporate2.jpg" alt="Corporate event setup" loading="lazy"></figure>
+      <figure data-category="corporate"><img src="images/corporate3.jpg" alt="Conference seminar" loading="lazy"></figure>
+      <figure data-category="cultural"><img src="images/fest1.jpg" alt="Cultural fest crowd" loading="lazy"></figure>
+    </div>
+    <p class="center gallery-more">Want to see more? Follow us on Instagram — <a href="https://www.instagram.com/crowncraftevents2.o/" target="_blank" rel="noopener">@crowncraftevents2.o</a></p>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img src="" alt="">
+</div>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2>Like what you see?</h2>
+    <p>Let's plan something just as memorable for you.</p>
+    <a href="contact.html" class="btn btn-primary">Start Planning</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">Crown<span style="color:var(--gold);">craft</span> Events</a>
+        <p style="margin-top:14px;">Not Just Events, It's an Experience.<br>Director: Abhiraj Kumar Chaudhary</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+917780063493">+91 77800 63493</a></li>
+          <li><a href="mailto:crowncrafte@gmail.com">crowncrafte@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/crowncraftevents2.o/" target="_blank" rel="noopener">@crowncraftevents2.o</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Crowncraft Events. All rights reserved.</p>
+      <p>Varanasi, Uttar Pradesh</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/917780063493?text=Hi%20Crowncraft%20Events%2C%20I%27d%20like%20to%20enquire%20about%20an%20event."
+   target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">💬</a>
+
+<script src="js/script.js"></script>
+</body>
+</html>
