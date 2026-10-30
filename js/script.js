@@ -81,20 +81,32 @@ if (contactForm) {
   const nameField = document.getElementById('cf-name');
   const phoneField = document.getElementById('cf-phone');
 
-  // Progressive capture: save a partial lead once name + phone are both filled,
-  // even if the visitor never hits Submit.
-  let partialSent = false;
-  phoneField.addEventListener('blur', () => {
+  // Progressive capture: whenever focus leaves the form entirely (visitor
+  // tabs away, clicks elsewhere, or abandons the page) with name + phone
+  // filled, save a snapshot of everything filled in so far.
+  let formSubmitted = false;
+  let lastPartialSnapshot = '';
+  contactForm.addEventListener('focusout', (e) => {
+    if (formSubmitted || contactForm.contains(e.relatedTarget)) return;
     const name = nameField.value.trim();
     const phone = phoneField.value.trim();
-    if (!partialSent && name && phone) {
-      partialSent = true;
-      sendLead({ name, phone, eventType: document.getElementById('cf-event').value, status: 'partial' });
-    }
+    if (!name || !phone) return;
+    const data = {
+      name, phone,
+      eventType: document.getElementById('cf-event').value,
+      date: document.getElementById('cf-date').value,
+      message: document.getElementById('cf-message').value.trim(),
+      status: 'partial'
+    };
+    const snapshot = JSON.stringify(data);
+    if (snapshot === lastPartialSnapshot) return;
+    lastPartialSnapshot = snapshot;
+    sendLead(data);
   });
 
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    formSubmitted = true;
     const name = nameField.value.trim();
     const phone = phoneField.value.trim();
     const eventType = document.getElementById('cf-event').value;
