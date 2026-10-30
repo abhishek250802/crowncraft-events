@@ -102,11 +102,46 @@ img{display:block;max-width:100%;}
 .gallery-more{margin-top:40px;color:var(--text-muted);}
 .gallery-more a{color:var(--gold);font-weight:600;}
 
+/* Testimonials */
+.testimonials{padding:110px 0;}
+.testimonials h2{font-size:2.2rem;margin-bottom:50px;}
+.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;}
+.testimonial-card{
+  background:var(--black-soft);
+  border:1px solid rgba(212,175,55,.15);
+  border-radius:var(--radius);
+  padding:30px 26px;
+}
+.testimonial-card .stars{color:var(--gold);letter-spacing:2px;margin-bottom:14px;}
+.testimonial-card p{color:var(--text-muted);font-style:italic;margin-bottom:16px;}
+.testimonial-card strong{color:var(--cream);font-size:.9rem;}
+
 /* Contact */
-.contact{padding:110px 0;}
+.contact{padding:110px 0;background:var(--black-soft);}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:stretch;}
 .contact h2{font-size:2.2rem;margin:10px 0 14px;}
 .contact-lead{color:var(--text-muted);margin-bottom:26px;}
+
+.contact-form{display:flex;flex-direction:column;gap:14px;margin-bottom:34px;}
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  width:100%;
+  padding:13px 16px;
+  border-radius:10px;
+  border:1px solid rgba(212,175,55,.25);
+  background:var(--black);
+  color:var(--cream);
+  font-family:inherit;
+  font-size:.95rem;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{color:#8a8375;}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{outline:none;border-color:var(--gold);}
+.contact-form button{align-self:flex-start;border:none;cursor:pointer;}
+
 .contact-list{list-style:none;margin-bottom:30px;}
 .contact-list li{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px;color:var(--text-muted);}
 .contact-list a:hover{color:var(--gold);}
@@ -114,7 +149,8 @@ img{display:block;max-width:100%;}
 
 /* Footer */
 .footer{padding:28px 0;border-top:1px solid rgba(212,175,55,.15);}
-.footer-inner{display:flex;justify-content:space-between;color:var(--text-muted);font-size:.85rem;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;color:var(--text-muted);font-size:.85rem;}
+.footer-links{display:flex;gap:20px;}
 .footer-inner a{color:var(--gold);}
 
 /* WhatsApp float */
