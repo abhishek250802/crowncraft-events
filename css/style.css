@@ -285,6 +285,11 @@ ul{list-style:none;}
 .contact-form textarea::placeholder{color:#8a8375;}
 .contact-form input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(1);cursor:pointer;}
 .contact-form input[type="date"]{color-scheme:dark;}
+.phone-input{display:flex;align-items:center;border-radius:10px;border:1px solid rgba(212,175,55,.25);background:var(--black);}
+.phone-input:focus-within{border-color:var(--gold);}
+.phone-input .phone-prefix{padding:13px 0 13px 16px;color:var(--cream);font-size:.95rem;}
+.phone-input input{border:none;background:transparent;padding-left:6px;}
+.phone-input input:focus{outline:none;}
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus{outline:none;border-color:var(--gold);}

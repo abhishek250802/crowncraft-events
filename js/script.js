@@ -80,6 +80,12 @@ function sendLead(data) {
 if (contactForm) {
   const nameField = document.getElementById('cf-name');
   const phoneField = document.getElementById('cf-phone');
+  const leadSessionId = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
+  // Digits only, max 10 — the +91 prefix is shown separately.
+  phoneField.addEventListener('input', () => {
+    phoneField.value = phoneField.value.replace(/\D/g, '').slice(0, 10);
+  });
 
   // Progressive capture: whenever focus leaves the form entirely (visitor
   // tabs away, clicks elsewhere, or abandons the page) with name + phone
@@ -90,9 +96,10 @@ if (contactForm) {
     if (formSubmitted || contactForm.contains(e.relatedTarget)) return;
     const name = nameField.value.trim();
     const phone = phoneField.value.trim();
-    if (!name || !phone) return;
+    if (!name || phone.length !== 10) return;
     const data = {
-      name, phone,
+      sessionId: leadSessionId,
+      name, phone: `+91${phone}`,
       eventType: document.getElementById('cf-event').value,
       date: document.getElementById('cf-date').value,
       message: document.getElementById('cf-message').value.trim(),
@@ -106,20 +113,26 @@ if (contactForm) {
 
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    formSubmitted = true;
     const name = nameField.value.trim();
     const phone = phoneField.value.trim();
+    if (phone.length !== 10) {
+      phoneField.reportValidity();
+      phoneField.focus();
+      return;
+    }
+    formSubmitted = true;
+    const fullPhone = `+91${phone}`;
     const eventType = document.getElementById('cf-event').value;
     const date = document.getElementById('cf-date').value;
     const message = document.getElementById('cf-message').value.trim();
 
-    sendLead({ name, phone, eventType, date, message, status: 'submitted' });
+    sendLead({ sessionId: leadSessionId, name, phone: fullPhone, eventType, date, message, status: 'submitted' });
 
     const lines = [
       `Hi Crowncraft Events, I'm ${name}.`,
       `I'd like to enquire about a ${eventType}.`,
       date ? `Preferred date: ${date}.` : '',
-      phone ? `My contact number: ${phone}.` : '',
+      `My contact number: ${fullPhone}.`,
       message
     ].filter(Boolean);
     const fullMessage = lines.join(' ');
