@@ -283,6 +283,8 @@ ul{list-style:none;}
 }
 .contact-form input::placeholder,
 .contact-form textarea::placeholder{color:#8a8375;}
+.contact-form input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(1);cursor:pointer;}
+.contact-form input[type="date"]{color-scheme:dark;}
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus{outline:none;border-color:var(--gold);}
