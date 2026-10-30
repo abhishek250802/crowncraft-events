@@ -34,3 +34,11 @@ npx serve .
 
 - Each page's content lives directly in its own HTML file.
 - The contact form (`contact.html`) builds a WhatsApp message and a mailto link client-side (`js/script.js`) — no backend required.
+
+## Lead capture
+
+Every contact form submission — and partial entries (name + phone filled, form abandoned) — is sent to a Google Apps Script webhook that appends a row to the **"Crowncraft Events - Leads"** Google Sheet (under `crowncrafte@gmail.com`). See `LEADS_WEBHOOK_URL` in `js/script.js`.
+
+## Analytics
+
+Vercel Web Analytics (free tier) is enabled via `<script defer src="/_vercel/insights/script.js">` on every page.
