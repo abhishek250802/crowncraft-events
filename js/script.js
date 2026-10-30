@@ -65,15 +65,43 @@ if (lightbox) {
 // Contact form -> opens WhatsApp chat + prefilled email, both with full details
 const CONTACT_PHONE = '917780063493';
 const CONTACT_EMAIL = 'crowncrafte@gmail.com';
+const LEADS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxJTnVT2sttikXcdbgHlce7YkQntmFdBTEzSyGwytgFWKliQ5OGT-mKVbRwPBsTB4U/exec';
 const contactForm = document.getElementById('contactForm');
+
+function sendLead(data) {
+  fetch(LEADS_WEBHOOK_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(data)
+  }).catch(() => {});
+}
+
 if (contactForm) {
+  const nameField = document.getElementById('cf-name');
+  const phoneField = document.getElementById('cf-phone');
+
+  // Progressive capture: save a partial lead once name + phone are both filled,
+  // even if the visitor never hits Submit.
+  let partialSent = false;
+  phoneField.addEventListener('blur', () => {
+    const name = nameField.value.trim();
+    const phone = phoneField.value.trim();
+    if (!partialSent && name && phone) {
+      partialSent = true;
+      sendLead({ name, phone, eventType: document.getElementById('cf-event').value, status: 'partial' });
+    }
+  });
+
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const name = document.getElementById('cf-name').value.trim();
-    const phone = document.getElementById('cf-phone').value.trim();
+    const name = nameField.value.trim();
+    const phone = phoneField.value.trim();
     const eventType = document.getElementById('cf-event').value;
     const date = document.getElementById('cf-date').value;
     const message = document.getElementById('cf-message').value.trim();
+
+    sendLead({ name, phone, eventType, date, message, status: 'submitted' });
 
     const lines = [
       `Hi Crowncraft Events, I'm ${name}.`,
