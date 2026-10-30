@@ -4,6 +4,17 @@ Marketing website for [Crowncraft Events](https://www.instagram.com/crowncraftev
 
 **Live site:** https://crowncraft-events.vercel.app
 
+## Links
+
+| What | Where |
+|---|---|
+| Live site | https://crowncraft-events.vercel.app |
+| GitHub repo | https://github.com/abhishek250802/crowncraft-events |
+| Vercel project (deployments, logs, analytics) | https://vercel.com/abhishek-e0b0/crowncraft-events |
+| Leads (Google Sheet) | https://docs.google.com/spreadsheets/d/1yXPGcqdJPctW2e2d4x30H6aTc4iIqKm6xb41zpwEi-c/edit |
+| Leads webhook (Apps Script project) | https://script.google.com/home/projects/1G7EwvaxYhY2OT-5b9rsNvDS0SFSEkaR3aGWF_mk1cbCoSdBQ_NQUDfDk/edit |
+| Instagram | https://www.instagram.com/crowncraftevents2.o/ |
+
 ## Stack
 
 Plain HTML/CSS/JS — no build step, no dependencies. Deployed on Vercel, auto-deploying from the `main` branch.
